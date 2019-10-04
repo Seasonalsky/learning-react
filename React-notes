@@ -38,18 +38,40 @@ ReactDOM.render(
 ///
 
 ---
-React html & css prac
+//React html & css prac
 import React from "react"
 import ReactDOM from "react-dom"
 
 function MyInfo(){
   return(
+  <div>
   <h1>Seasonal</h1>
   <p>Hi I'm learning React and making slow but steady progress!<p>
   <ol>
     <li>My bed</li>
     <li>My bed but with a cat on it<li>
     <li>See above</li>
-   </ol>
+  </ol>
+  </div>
   )
 }
+ReactDOM.render(<MyInfo />, document.getElementById("root"))
+///
+
+From ES6: export default FileName
+//where FileName is FileName.js
+///
+
+Remember to instantiate with <FileName />
+///
+
+To import a JS file: import FileName from "./FileName.js"
+//where ./ means current, root folder and ./folder/FileName.js indicates it's inside folder
+///
+
+Appropriate naming is important! If creating a footer, the ELEMENT is called <footer></footer>.
+But you can call the COMPONENT <BestFooter>
+///
+
+
+
