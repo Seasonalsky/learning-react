@@ -1,0 +1,77 @@
+tldr: https://twitter.com/chrisachard/status/1175022111758442497?s=21
+
+import React from "react"
+import ReactDOM from "react-dom"
+ReactDom.render(WHAT YOU WANT TO RENDER, WHERE TO RENDER IT)
+
+e.g.
+import React from 'react'
+import ReactDom from 'react-dom'
+ReactDOM.render(
+  <ul>
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+   </ul>,
+  document.getElementById('root')
+  )
+  ///
+  
+---
+- functions should use camel case and start with a capital letter
+- instead of putting everything under the content to be rendered, we could make a function that returns it, then render the function
+e.g.
+function MyApp() {
+  return (
+    <ul>
+      <li>1</li>
+      <li>2</li>
+      <li>3</li>
+    </ul>
+  )
+ }
+
+ReactDOM.render(
+  <MyApp />,
+  document.getElementById("root")
+)
+///
+
+---
+//React html & css prac
+import React from "react"
+import ReactDOM from "react-dom"
+
+function MyInfo(){
+  return(
+  <div>
+  <h1>Seasonal</h1>
+  <p>Hi I'm learning React and making slow but steady progress!<p>
+  <ol>
+    <li>My bed</li>
+    <li>My bed but with a cat on it<li>
+    <li>See above</li>
+  </ol>
+  </div>
+  )
+}
+ReactDOM.render(<MyInfo />, document.getElementById("root"))
+///
+
+From ES6: export default FileName
+//where FileName is FileName.js
+///
+
+Remember to instantiate with <FileName />
+///
+
+To import a JS file: import FileName from "./FileName.js"
+//where ./ means current, root folder and ./folder/FileName.js indicates it's inside folder
+///
+
+Appropriate naming is important! If creating a footer, the ELEMENT is called <footer></footer>.
+But you can call the COMPONENT <BestFooter>
+///
+
+
+
