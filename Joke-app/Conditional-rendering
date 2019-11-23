@@ -28,4 +28,4 @@ render() {
     </div>
   );
 }
-
+//isLoggedin will trigger 'currently' if true and 'not' if false
