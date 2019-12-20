@@ -1,0 +1,61 @@
+//We want to give props something to fall back on when something is missing
+//After declaring a functional component, use the function and specify a static property called defaultProps
+//defaultProps is an object, so we will equate it to the default value we want
+//This is App.js
+import React from "react"
+import Card from "./Card"
+
+function App() {
+    return (
+        <div>
+            <Card cardColor="red" />
+            <Card />
+            <Card cardColor="green" />
+        </div>
+    )
+}
+
+export default App
+//Notice the Card that doesn't have cardColor! Below is Card.js
+import React from "react"
+
+function Card(props) {
+    const styles = {
+        backgroundColor: props.cardColor,
+        height: 100,
+        width: 100
+    }
+    
+    return (
+        <div style={styles}></div>
+    )
+}
+
+Card.defaultProps = {
+    cardColor: "blue"
+}
+
+export default Card
+//Unless Card gets a new defined value in App.js, the default value will be chosen and shown
+//Below is what it would look like as a class component
+class Card extends React.Component {
+    static defaultProps = {
+        cardColor: "blue",
+        height: 100,
+        width: 100
+    }
+    render() {
+        const styles = {
+            backgroundColor: this.props.cardColor,
+            height: this.props.height,
+            width: this.props.width
+        }
+        
+        return (
+            <div style={styles}></div>
+        )
+    }
+}
+//https://reactjs.org/docs/typechecking-with-proptypes.html#proptypes
+//Also, if you want to ensure that your prop is limited to specific values you can treat it as an enum.
+optionalEnum: PropTypes.oneOf(['News', 'Photos']),
