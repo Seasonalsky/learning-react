@@ -1,0 +1,81 @@
+//Usually we would import a child or something similar into our App, like this
+import React from "react"
+import Child from "./Child"
+
+function App() {
+    return (
+        <div>
+            <Child />
+        </div>
+    )
+}
+
+export default App
+//and the Child would be this
+import React from "react"
+import Grandchild from "./Grandchild"
+
+function Child() {
+    return (
+        <div>
+            <h1>I'm the Child component</h1>
+            <Grandchild />
+        </div>
+    )
+}
+
+export default Child
+//and the grandchild would be this
+import React from "react"
+
+function Grandchild() {
+    return (
+        <div>
+            <hr />
+            <h3>I'm the Grandchild component</h3>
+            <p>I'm also a part of the Grandchild component</p>
+        </div>
+    )
+}
+
+export default Grandchild
+//which would lead to this HTML
+<div id="root">
+    <div>
+        <div>
+            <h1>I'm the Child component</h1>
+            <div>
+                <hr>
+                <h3>I'm the Grandchild component</h3>
+                <p>I'm also a part of the Grandchild component</p>
+            </div>
+        </div>
+    </div>
+</div>
+//but that's messy and undesirable so we want to use replace div with React.Fragment
+import React from "react"
+import Child from "./Child"
+
+function App() {
+    return (
+        <React.Fragment>
+            <Child />
+        </React.Fragment>
+    )
+}
+
+export default App
+//basically change all the div elements that wrap our content just bcus react requires it, to React.Fragment
+//or we can import {Fragment} from "react as well"
+import React, {Fragment} from "react"
+import Child from "./Child"
+
+function App() {
+    return (
+        <Fragment>
+            <Child />
+        </Fragment>
+    )
+}
+
+export default App 
