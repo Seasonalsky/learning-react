@@ -1,0 +1,86 @@
+//An alternative to props is children
+//Below is App.js
+import React from "react"
+import CTA from "./CTA"
+
+function App() {
+    return (
+        <div>
+            <CTA position="right">
+                <h1>This is an important CTA</h1>
+                <button>Click me now or you'll miss out!</button>
+            </CTA>
+            
+            <CTA>
+                <form>
+                    <input type="email" placeholder="Enter email address here"/>
+                    <br />
+                    <button>Submit</button>
+                </form>
+            </CTA>
+        </div>
+    )
+}
+
+export default App
+//Below is CTA.js
+import React from "react"
+
+function CTA(props) {
+    return (
+        <div className="border">
+            {props.children}
+        </div>
+    )
+}
+
+export default CTA
+//It will simply act similar to this code, where CTA is shown with the border coloured etc
+import React from "react"
+
+function CTA() {
+    return (
+        <div className="border">
+            <h1>This is an important CTA</h1>
+            <button>Click me now or you'll miss out!</button>
+        </div>
+    )
+}
+
+export default CTA
+//Children gives you more flexibility in choosing what you want to go in your main App
+//Below we have an example where 3 different callouts about information, image and email can be condensed
+//The Callout referenced here is just a <div> with {props.children}
+import React from "react"
+import Callout from "./Callout"
+
+function App() {
+    return (
+        <main>
+            <h1>Welcome!</h1>
+            
+            <Callout>
+                <h2>Don't miss out!</h2>
+                <p>Unless you don't suffer from FOMO, you better make sure you fill out the email form below!</p>
+            </Callout>
+            
+            <p>This is probably the best site you've ever come across. I'm glad you're here to witness the magnificence of this website right now.</p>
+            
+            <Callout>
+                <img src="https://picsum.photos/id/102/4320/3240" width="100%" />
+                <figcaption>Just look at those sparkling raspberries!</figcaption>
+            </Callout>
+            
+            <p>Here's some more unforgettable content. Lorem ipsum something or other.</p>
+            
+            <Callout>
+                <h2>Give us your email. We definitely won't sell it to anyone.</h2>
+                <input type="email" placeholder="Enter Email"/>
+                <button>Sign me up!</button>
+            </Callout>
+            
+        </main>
+    )
+}
+
+export default App
