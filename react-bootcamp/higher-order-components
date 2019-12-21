@@ -1,0 +1,55 @@
+//A higher order function is a function that take another function in as an argument
+//A higher order argument is a function that takes a component as its first argument and returns a new component
+//(continued) that wraps the given component, providing extra capabilities to it.
+const upgradedComponent = withSuperPowers(component)
+export default upgradedComponent
+//We're going to render our favourite number
+//Step 1: Instead of creating a function on it's own, we export it right away
+export function withFavoriteNumber(component)
+//Step 2: We assign the component parameter to a constant
+const C = component
+//Step 3: We then return a function with props as a parameter and in turn return C
+//Step 4: Then, we put the favourite number inside the bracket with C
+return function(props) {
+        return (
+            <C favoriteNumber={42} {...props}/>
+        )
+    }
+//Note: {...props} means to pass and hence render all the props given
+//Step 5: render function and pass it App as a parameter
+export default withFavoriteNumber(App)
+//withFavouriteNumber.js will look like this
+import React from "react"
+
+export function withFavoriteNumber(component) {
+    const C = component
+    return function(props) {
+        return (
+            <C favoriteNumber={42} {...props}/>
+        )
+    }
+}
+//App.js will look like this
+import React from "react"
+import {withFavoriteNumber} from "./withFavoriteNumber"
+
+function App(props) {
+    return (
+        <div>{props.favoriteNumber}</div>
+    )
+}
+
+export default withFavoriteNumber(App)
+
+//This is part of another long question that I didn't note down entirely
+//Remember that when you have this
+<Component on={this.state.on} toggle />
+//We are just creating an instance of Component and passing it 'on'
+//Because we gave it 'props' earlier on and created states, we will specify that 'on' takes {this.state.on}
+//We also give it the method 'toggle'
+
+//The basis of HOC is we create a function (in a separate file) that takes a component and returns a new component
+//In this case, withToggler > takes Favourite > assigns it to return SuperChargedFavouriteComponent
+//>returns new component (called function(props)) that wraps a new component Toggler
+//Toggler does its thing and renders a component which is what we are passing to withToggler
+//Everything Toggler does is given to its Component, specified with the <> brackets
