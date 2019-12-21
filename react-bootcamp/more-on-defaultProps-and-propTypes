@@ -1,1 +1,27 @@
-RoundedImg.propTypes
+//Here we are trying to ensure the component should always receive a `src` prop, and it should always be a string
+//Also, the component should be able to accept only a string or a number for the `borderRadius` prop
+//And if it doesn't receive a `borderRadius` prop at all, it should default it to "50%"
+//https://reactjs.org/docs/typechecking-with-proptypes.html#proptypes
+import React from "react"
+import PropTypes from "prop-types"
+
+function RoundedImg(props) {
+    return (
+        <img 
+            src={props.src} 
+            style={{borderRadius: props.borderRadius}} 
+            className="round-img"
+        />
+    )
+}
+
+RoundedImg.propTypes = {
+    src: PropTypes.string.isRequired,
+    borderRadius: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
+}
+
+RoundedImg.defaultProps = {
+    borderRadius: "50%"
+}
+
+export default RoundedImg
