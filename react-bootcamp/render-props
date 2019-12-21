@@ -1,0 +1,35 @@
+//This is App.js
+import React from "react"
+import Example from "./Example"
+
+function App() {
+    return (
+        <div>
+            <Example render={
+                function(bool, number) {
+                    return (
+                        <div>
+                            <h1>{number}</h1>
+                            <h1>{bool ? "true" : "false"}</h1>
+                        </div>
+                    )
+                }
+            }/>
+        </div>
+    )
+}
+
+export default App
+//This is Example.js
+import React from "react"
+
+function Example(props) {
+    return (
+        <div>
+            {props.render(true, 42)}
+        </div>
+    )
+}
+
+export default Example
+//The key thing here is the syntax for displaying a prop from another file
