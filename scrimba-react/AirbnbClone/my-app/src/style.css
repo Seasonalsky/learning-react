@@ -1,0 +1,88 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+
+}
+
+.container {
+    max-width: 550px;
+    /* background-color: blue; */
+}
+
+.navbar {
+    height: 70px;
+    box-shadow: 0px 2.98256px 7.4564px rgba(0, 0, 0, 0.1);
+    display: flex;
+    padding: 20px 30px;
+}
+
+.logo {
+    max-width: 100px;
+}
+
+.hero {
+    display: flex;
+    /* justify-content: center; */
+    flex-direction: column;
+}
+
+.heroimg {
+    /* position: absolute; */
+    align-self: center;
+    max-width: 400px;
+    /* display: block;
+    margin-left: auto;
+    margin-right: auto; */
+    padding: 20px 20px;
+}
+
+.herotitle {
+    text-align: left;
+    padding: 0px 20px;
+    font-weight: 600;
+    margin: 0;
+}
+
+.herodesc {
+    inline-size: 330px;
+    font-weight: 300;
+    font-size: 16px;
+    padding: 0 20px;
+}
+
+.card {
+    padding: 20px;
+    width: 175px;
+    font-size: 12px;
+}
+
+.card1 {
+    border-radius: 10px;
+}
+
+.ratingtitle {
+    display: flex;
+    flex-direction: row;
+    /* align-items: center; */
+}
+
+.star {
+    max-height: 14px;
+}
+
+.gray {
+    color:  #918E9B;
+    padding-left: 5px;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+/* .rating {
+
+} */
